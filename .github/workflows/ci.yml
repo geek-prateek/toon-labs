@@ -1,0 +1,26 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework: [net5.0, net48, netstandard2.0]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore -c Release
+      - name: Test
+        run: dotnet test test/Toon.Serde.Tests/Toon.Serde.Tests.csproj --no-build -c Release --verbosity normal
+      - name: Pack (artifact)
+        run: dotnet pack src/Toon.Serde/Toon.Serde.csproj -c Release -o ./artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: ./artifacts/*.nupkg

@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net5.0;net48</TargetFrameworks>
+		<PackageId>Toon.Serde</PackageId>
+		<Version>0.1.0</Version>
+		<Authors>toon-labs</Authors>
+		<Company>toon-labs</Company>
+		<Description>Deterministic TOON serializer for LLM pipelines — deterministic JSON → TOON, HttpClient middleware, and DI helpers.</Description>
+		<PackageTags>toon;serde;llm;serialization;netstandard</PackageTags>
+		<RepositoryUrl>https://github.com/geek-prateek/toon-labs</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<!-- optional -->
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<!-- push to nuget.org symbols or use GitHub Symbols -->
+	</PropertyGroup>
+
+	<!-- Language settings per target -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'net48'">
+    <LangVersion>8.0</LangVersion>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <!-- Packages for legacy targets -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'net48'">
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.32" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.32" />
+  </ItemGroup>
+
+  <!-- Packages for modern target -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

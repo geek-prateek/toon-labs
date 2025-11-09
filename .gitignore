@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+artifacts/
+
+# Rider
+.idea/
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+# local package folders
+*.snupkg
+
+# logs
+*.log
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# coverage
+coverage.*
+
+# other
+.vscode/
+*.vsix

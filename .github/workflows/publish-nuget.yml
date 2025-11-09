@@ -1,0 +1,21 @@
+name: Publish NuGet
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+      - name: Build & Pack
+        run: dotnet pack src/Toon.Serde/Toon.Serde.csproj -c Release -o ./artifacts
+      - name: Publish to NuGet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
