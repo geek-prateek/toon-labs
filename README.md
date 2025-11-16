@@ -1,4 +1,4 @@
-Toon.Serde — Learning-Oriented TOON Serializer for .NET
+## Toon.Serde — Learning-Oriented TOON Serializer for .NET
 
 Toon.Serde is a lightweight, open-source implementation of TOON (Token-Oriented Object Notation) designed specifically for learning, experimentation, and understanding how TOON works under the hood.
 
@@ -82,7 +82,7 @@ For a full explanation of TOON, comparisons with JSON, and real use cases, read 
 
 “TOON: The Data Format Changing How AI Agents Think”
 
-(Insert your Medium link here)
+[(Medium Blog)](https://medium.com/@prateek.dbg/toon-the-data-format-changing-how-ai-agents-think-30c3d1f7b5bc)
 
 🤝 Contributing
 
