@@ -3,8 +3,8 @@
 		<TargetFrameworks>netstandard2.0;net5.0;net48</TargetFrameworks>
 		<PackageId>Toon.Serde</PackageId>
 		<Version>0.1.0</Version>
-		<Authors>toon-labs</Authors>
-		<Company>toon-labs</Company>
+		<Authors>geekprateek</Authors>
+		<Company>NGVP</Company>
 		<Description>Deterministic TOON serializer for LLM pipelines — deterministic JSON → TOON, HttpClient middleware, and DI helpers.</Description>
 		<PackageTags>toon;serde;llm;serialization;netstandard</PackageTags>
 		<RepositoryUrl>https://github.com/geek-prateek/toon-labs</RepositoryUrl>
